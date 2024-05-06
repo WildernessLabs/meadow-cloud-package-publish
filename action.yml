@@ -1,15 +1,15 @@
-name: 'PUblish Meadow MPAK'
+name: 'Publish Meadow MPAK'
 description: 'Publish Meadow MPAK to a Collection of Devices'
 inputs:
   api_key:
     description: 'API Key'
     required: true
-  host:
-    description: 'API URL'
-    required: true
   collection_id:
     description: 'Device Collection ID'
     required: true
+  host:
+    description: 'API URL'
+    required: false    
   metadata:
     description: 'Metadata for publish'
     required: false
@@ -18,7 +18,8 @@ runs:
   steps:   
     - name: Publish Package
       run: |
-        if [[ -n "${{ inputs.collection_id }}" ]]; then
+        PACKAGE_ID=${{ env.PACKAGE_ID }}
+        if [[ -n "$PACKAGE_ID" ]]; then
           COMMAND="meadow cloud package publish $PACKAGE_ID --collectionId ${{ inputs.collection_id }} --apikey ${{ inputs.api_key }}"
           HOST_PARAM=""
           if [[ -n "${{ inputs.host }}" ]]; then
@@ -28,9 +29,9 @@ runs:
             COMMAND="$COMMAND --metadata '${{ inputs.metadata }}'"
           fi
           COMMAND="$COMMAND $HOST_PARAM"
-          echo "Running command: $COMMAND"  # Debugging line to see the command before execution
+          echo "Running command: $COMMAND"
           eval "$COMMAND"
         else
-          echo "No COLLECTION_ID provided, skipping package publish."
+          echo "No PACKAGE_ID provided, unable to publish package."
         fi
       shell: bash
