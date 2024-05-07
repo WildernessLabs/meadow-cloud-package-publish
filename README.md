@@ -40,7 +40,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Publish Meadow MPAK
-        uses: [Your GitHub Username]/publish-meadow-mpak@v1
+        uses: WildernessLabs/meadow-cloud-package-publish@main
         with:
           api_key: ${{ secrets.API_KEY }}
           collection_id: '123456789'
