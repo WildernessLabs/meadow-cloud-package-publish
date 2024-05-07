@@ -25,7 +25,7 @@ Metadata for the publish operation. Optional parameter that can be used to provi
 To use this action, define it in your workflow YAML file with the necessary inputs. Below is an example workflow that demonstrates how to configure and use the Publish Meadow MPAK action:
 
 ```yaml
-name: Deploy Meadow MPAK
+name: Publish Meadow MPAK
 
 on:
   push:
@@ -36,9 +36,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-
       - name: Publish Meadow MPAK
         uses: WildernessLabs/meadow-cloud-package-publish@main
         with:
