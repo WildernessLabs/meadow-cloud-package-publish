@@ -13,15 +13,12 @@ inputs:
   metadata:
     description: 'Metadata for publish'
     required: false
-  package_id:
-    description: 'Package ID'
-    required: false
 runs:
   using: 'composite'
   steps:   
     - name: Publish Package
       run: |
-        PACKAGE_ID="${{ inputs.package_id || env.PACKAGE_ID }}"
+        PACKAGE_ID="${{ env.PACKAGE_ID }}"
         if [[ -n "$PACKAGE_ID" ]]; then
           COMMAND="meadow cloud package publish $PACKAGE_ID --collectionId ${{ inputs.collection_id }} --apikey ${{ inputs.api_key }}"
           HOST_PARAM=""
