@@ -41,5 +41,3 @@ jobs:
         with:
           api_key: ${{ secrets.API_KEY }}
           collection_id: '123456789'
-          host: 'https://staging.meadowcloud.dev'
-          metadata: '{"version": "1.0.0", "description": "New update"}'
