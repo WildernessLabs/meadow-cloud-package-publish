@@ -1,5 +1,5 @@
-name: 'Publish Meadow MPAK'
-description: 'Publish Meadow MPAK to a Collection of Devices'
+name: 'Meadow.Cloud Package Publish'
+description: 'Publish packages to Meadow.Cloud'
 inputs:
   api_key:
     description: 'API Key'
