@@ -13,6 +13,9 @@ inputs:
   metadata:
     description: 'Metadata for publish'
     required: false
+branding:
+  icon: 'cloud'
+  color: 'white'
 runs:
   using: 'composite'
   steps:   
